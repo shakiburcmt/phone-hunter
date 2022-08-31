@@ -9,6 +9,17 @@ const displayPhones = phone => {
     // console.log(phone);
     const phoneContainer = document.getElementById('phone-container');
     phoneContainer.innerHTML = '';
+    // display limitation
+    phone = phone.slice(0, 9);
+
+    // display no phone or brand found
+    const noPhoneFound = document.getElementById('no-message-found');
+    if (phone.length === 0) {
+        noPhoneFound.classList.remove('d-none');
+    }
+    else {
+        noPhoneFound.classList.add('d-none');
+    }
     phone.forEach(iPhone => {
         const phoneDiv = document.createElement('div');
         phoneDiv.classList.add('col');
